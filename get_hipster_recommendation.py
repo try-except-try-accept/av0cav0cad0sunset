@@ -199,11 +199,15 @@ def get_song(kw=None):
             search_kw = literal + "+".join([w for w in song.split(" ")]) + literal + "+" + literal + "+".join([w for w in artist.split(" ")]) + literal
             youtube_url = YT_URL.format(search_kw)
             print(youtube_url)
-            soup = BeautifulSoup(get_web_data(youtube_url).content, features="html.parser")
-            vid_id = soup.find_all("a", class_="yt-uix-tile-link")[0]['href']
+            
+            x = get_web_data(youtube_url).text
+            soup = BeautifulSoup(x, features="html.parser") 
+           
+            vid_id = soup.find_all("a", class_="yt-simple-endpoint")[0]['href']
             final = "https://www.youtube.com" + vid_id
             break
-        except IndexError:
+        except IndexError as e:
+            print(e)
             literal = ""
     #
     # GOOG_URL = "https://www.google.com/search?tbm=isch&q={}"
