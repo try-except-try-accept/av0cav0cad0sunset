@@ -200,7 +200,7 @@ def get_song(kw=None):
             youtube_url = YT_URL.format(search_kw)
             print(youtube_url)
             
-            x = get_web_data(youtube_url).text
+            x = get_web_data(youtube_url).content
             soup = BeautifulSoup(x, features="html.parser") 
            
             vid_id = soup.find_all("a", class_="yt-simple-endpoint")[0]['href']
