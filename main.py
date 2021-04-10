@@ -9,8 +9,8 @@ from captions import get_random_song_caption, get_random_thought, get_random_tra
 from time import sleep
 from difflib import SequenceMatcher
 
-USERNAME = "av0cav0cad0sunset"
-PASSWORD = "c0linmcr43"
+USERNAME = ""
+PASSWORD = ""
 HOURS_PER_POST = 0.5
 TOO_SIMILAR = 0.5
 
